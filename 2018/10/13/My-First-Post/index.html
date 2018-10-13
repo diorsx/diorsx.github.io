@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Linux DevOps Python Flask">
+<meta name="description" content="nginx安装 一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz 3.下载LuaJIT安装包1wget http://l">
 <meta name="keywords" content="Linux DevOps Python Flask">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wood小站">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My First Post">
+<meta property="og:url" content="http://yoursite.com/2018/10/13/My-First-Post/index.html">
 <meta property="og:site_name" content="wood小站">
-<meta property="og:description" content="Linux DevOps Python Flask">
+<meta property="og:description" content="nginx安装 一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz 3.下载LuaJIT安装包1wget http://l">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-13T11:21:33.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wood小站">
-<meta name="twitter:description" content="Linux DevOps Python Flask">
+<meta name="twitter:title" content="My First Post">
+<meta name="twitter:description" content="nginx安装 一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz 3.下载LuaJIT安装包1wget http://l">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/13/My-First-Post/"/>
 
 
 
 
 
-  <title>wood小站</title>
+  <title>My First Post | wood小站</title>
   
 
 
@@ -144,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,9 +218,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -250,9 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/13/My-First-Post/" itemprop="url">My First Post</a></h1>
+          <h1 class="post-title" itemprop="name headline">My First Post</h1>
         
 
         <div class="post-meta">
@@ -302,9 +300,7 @@
       
 
       
-        
-          
-            <h1 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h1><hr>
+        <h1 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h1><hr>
 <h2 id="一、下载安装包"><a href="#一、下载安装包" class="headerlink" title="一、下载安装包"></a>一、下载安装包</h2><h4 id="1-下载nginx安装包"><a href="#1-下载nginx安装包" class="headerlink" title="1.下载nginx安装包"></a>1.下载nginx安装包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.10.3.tar.gz</span><br></pre></td></tr></table></figure>
 <h4 id="2-下载NDK安装包"><a href="#2-下载NDK安装包" class="headerlink" title="2.下载NDK安装包"></a>2.下载NDK安装包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz</span><br></pre></td></tr></table></figure>
 <h4 id="3-下载LuaJIT安装包"><a href="#3-下载LuaJIT安装包" class="headerlink" title="3.下载LuaJIT安装包"></a>3.下载LuaJIT安装包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://luajit.org/download/LuaJIT-2.0.5.tar.gz</span><br></pre></td></tr></table></figure>
@@ -315,8 +311,6 @@
 <h4 id="2-检测系统安装包"><a href="#2-检测系统安装包" class="headerlink" title="2. 检测系统安装包"></a>2. 检测系统安装包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>检测是否有gcc编译器</span><br><span class="line">rpm -qa | grep gcc  || yum install gcc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>检测是否有openssl-devel,ngx依赖此安装包来支持ssl功能</span><br><span class="line">rpm -qa | grep openssl-devel  || yum install openssl-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>检测是否有pcre-devel,ngx依赖此安装包来支持rewrite功能</span><br><span class="line">rpm -qa | grep pcre-devel  || yum install pcre-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>检测是否有gd-devel,ngx依赖此安装包来支持图片处理功能</span><br><span class="line">rpm -qa | grep gd-devel  || yum install gd-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>安装LuaJit解释器,ngx需此解释器解释lua代码</span><br><span class="line">tar -xzf LuaJIT-2.0.5.tar.gz</span><br><span class="line">cd LuaJIT-2.0.5</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="三、安装步骤"><a href="#三、安装步骤" class="headerlink" title="三、安装步骤"></a>三、安装步骤</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>解压相关安装包</span><br><span class="line">for i in *.tar.gz ; do</span><br><span class="line">    tar -xzf "$i"</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">for i in *.zip ; do</span><br><span class="line">	unzip "$i"</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>编译安装</span><br><span class="line">cd nginx-1.10.3</span><br><span class="line">./configure --prefix=/usr/local/nginx-1.10.3 --with-stream --with-http_stub_status_module --with-http_image_filter_module --with-http_ssl_module --user=nginx --group=nginx --with-pcre --add-module=../simplresty-ngx_devel_kit-a22dade/ --add-module=../ngx_cache_purge-2.3 --add-module=../lua-nginx-module-0.10.13  --add-module=../nginx-upload-module-2.2.0</span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
     
@@ -333,140 +327,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wood">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wood小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/13/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-13T18:19:12+08:00">
-                2018-10-13
-              </time>
+              <a href="/2018/10/13/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -476,10 +358,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -487,6 +370,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -507,8 +394,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -550,6 +446,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx安装"><span class="nav-number">1.</span> <span class="nav-text">nginx安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、下载安装包"><span class="nav-number">1.1.</span> <span class="nav-text">一、下载安装包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载nginx安装包"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1.下载nginx安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载NDK安装包"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2.下载NDK安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-下载LuaJIT安装包"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3.下载LuaJIT安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-下载ngx-lua模块"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">4.下载ngx-lua模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-其他ngx第三方模块"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">5.其他ngx第三方模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、前置安装"><span class="nav-number">1.2.</span> <span class="nav-text">二、前置安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-创建nginx-worker进程的运行用户"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1. 创建nginx worker进程的运行用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-检测系统安装包"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2. 检测系统安装包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、安装步骤"><span class="nav-number">1.3.</span> <span class="nav-text">三、安装步骤</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -683,6 +595,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
