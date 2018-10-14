@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c90eb8;
+  background: #e0a68f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2903,4 +2903,11 @@ hr {
     width: auto;
     text-align: center;
   }
+}
+body {
+  background: url("/images/woodsitebackground01.jpg") no-repeat #e7e7e7;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
