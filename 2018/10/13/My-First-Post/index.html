@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="nginx安装一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz 3.下载LuaJIT安装包1wget http://lu">
+<meta name="description" content="nginx安装一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz">
 <meta name="keywords" content="Linux,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx在Centos下安装步骤">
 <meta property="og:url" content="http://yoursite.com/2018/10/13/My-First-Post/index.html">
 <meta property="og:site_name" content="wood小站">
-<meta property="og:description" content="nginx安装一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz 3.下载LuaJIT安装包1wget http://lu">
+<meta property="og:description" content="nginx安装一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T11:44:44.730Z">
+<meta property="og:updated_time" content="2018-10-14T11:48:18.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx在Centos下安装步骤">
-<meta name="twitter:description" content="nginx安装一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz 3.下载LuaJIT安装包1wget http://lu">
+<meta name="twitter:description" content="nginx安装一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz">
 
 
 
@@ -312,6 +312,7 @@
       
         <h1 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h1><h2 id="一、下载安装包"><a href="#一、下载安装包" class="headerlink" title="一、下载安装包"></a>一、下载安装包</h2><h4 id="1-下载nginx安装包"><a href="#1-下载nginx安装包" class="headerlink" title="1.下载nginx安装包"></a>1.下载nginx安装包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.10.3.tar.gz</span><br></pre></td></tr></table></figure>
 <h4 id="2-下载NDK安装包"><a href="#2-下载NDK安装包" class="headerlink" title="2.下载NDK安装包"></a>2.下载NDK安装包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="3-下载LuaJIT安装包"><a href="#3-下载LuaJIT安装包" class="headerlink" title="3.下载LuaJIT安装包"></a>3.下载LuaJIT安装包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://luajit.org/download/LuaJIT-2.0.5.tar.gz</span><br></pre></td></tr></table></figure>
 <h4 id="4-下载ngx-lua模块"><a href="#4-下载ngx-lua模块" class="headerlink" title="4.下载ngx-lua模块"></a>4.下载ngx-lua模块</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/openresty/lua-nginx-module/archive/v0.10.13.tar.gz -O lua-nginx-module-0.10.13.tar.gz</span><br></pre></td></tr></table></figure>
 <h4 id="5-其他ngx第三方模块"><a href="#5-其他ngx第三方模块" class="headerlink" title="5.其他ngx第三方模块"></a>5.其他ngx第三方模块</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ngx支持断点续传模块</span><br><span class="line">wget https://github.com/hongzhidao/nginx-upload-module/archive/master.zip -O nginx-upload-module-master.zip</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>清除静态缓存模块</span><br><span class="line">wget http://labs.frickle.com/files/ngx_cache_purge-2.3.tar.gz</span><br></pre></td></tr></table></figure>
