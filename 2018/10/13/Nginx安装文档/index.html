@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -42,6 +42,38 @@
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Iosevka:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
 
 
@@ -83,11 +115,11 @@
 <meta name="keywords" content="Linux,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx在Centos下安装步骤">
-<meta property="og:url" content="http://yoursite.com/2018/10/13/My-First-Post/index.html">
+<meta property="og:url" content="http://gotohard.in/2018/10/13/Nginx安装文档/index.html">
 <meta property="og:site_name" content="wood小站">
 <meta property="og:description" content="nginx安装一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T11:48:18.140Z">
+<meta property="og:updated_time" content="2018-10-15T01:58:21.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx在Centos下安装步骤">
 <meta name="twitter:description" content="nginx安装一、下载安装包1.下载nginx安装包1wget http://nginx.org/download/nginx-1.10.3.tar.gz 2.下载NDK安装包1wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz">
@@ -98,7 +130,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -120,7 +152,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/13/My-First-Post/"/>
+  <link rel="canonical" href="http://gotohard.in/2018/10/13/Nginx安装文档/"/>
 
 
 
@@ -211,12 +243,32 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-wiki">
+          <a href="/wiki" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br />
+            
+            维基
           </a>
         </li>
       
@@ -253,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/13/My-First-Post/">
+    <link itemprop="mainEntityOfPage" href="http://gotohard.in/2018/10/13/Nginx安装文档/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wood">
@@ -293,6 +345,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux运维/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux运维</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,6 +404,7 @@
 <h4 id="2-检测系统安装包"><a href="#2-检测系统安装包" class="headerlink" title="2. 检测系统安装包"></a>2. 检测系统安装包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>检测是否有gcc编译器</span><br><span class="line">rpm -qa | grep gcc  || yum install gcc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>检测是否有openssl-devel,ngx依赖此安装包来支持ssl功能</span><br><span class="line">rpm -qa | grep openssl-devel  || yum install openssl-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>检测是否有pcre-devel,ngx依赖此安装包来支持rewrite功能</span><br><span class="line">rpm -qa | grep pcre-devel  || yum install pcre-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>检测是否有gd-devel,ngx依赖此安装包来支持图片处理功能</span><br><span class="line">rpm -qa | grep gd-devel  || yum install gd-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>安装LuaJit解释器,ngx需此解释器解释lua代码</span><br><span class="line">tar -xzf LuaJIT-2.0.5.tar.gz</span><br><span class="line">cd LuaJIT-2.0.5</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="三、安装步骤"><a href="#三、安装步骤" class="headerlink" title="三、安装步骤"></a>三、安装步骤</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>解压相关安装包</span><br><span class="line">for i in *.tar.gz ; do</span><br><span class="line">    tar -xzf "$i"</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">for i in *.zip ; do</span><br><span class="line">	unzip "$i"</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>编译安装</span><br><span class="line">cd nginx-1.10.3</span><br><span class="line">./configure --prefix=/usr/local/nginx-1.10.3 --with-stream --with-http_stub_status_module --with-http_image_filter_module --with-http_ssl_module --user=nginx --group=nginx --with-pcre --add-module=../simplresty-ngx_devel_kit-a22dade/ --add-module=../ngx_cache_purge-2.3 --add-module=../lua-nginx-module-0.10.13  --add-module=../nginx-upload-module-2.2.0</span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h2 id="四、安装脚本"><a href="#四、安装脚本" class="headerlink" title="四、安装脚本"></a>四、安装脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"></span><br><span class="line">. /etc/init.d/functions</span><br><span class="line"></span><br><span class="line">[ ! -d /root/software ] &amp;&amp; mkdir -p /root/software</span><br><span class="line">cd /root/software</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>检测依赖包</span><br><span class="line">for dependent_package in gcc openssl-devel pcre-devel gd-devel unzip</span><br><span class="line">do</span><br><span class="line">   rpm -qa | grep $dependent_package  || yum -y install $dependent_package</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>创建相关运行用户</span><br><span class="line">read -p "创建Nginx运行用户(default nginx): "  nginx_user</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>如果为空, 则创建默认用户名nginx</span><br><span class="line">[ -z $nginx_user ] &amp;&amp; nginx_user="nginx"   </span><br><span class="line">id $nginx_user &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">if [ $? -ne 0 ]</span><br><span class="line">then</span><br><span class="line">    groupadd -g  1001 $nginx_user</span><br><span class="line">    useradd -g 1001 -u 1001 -s /sbin/nologin $nginx_user</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>下载安装包</span><br><span class="line">wget http://nginx.org/download/nginx-1.10.3.tar.gz</span><br><span class="line">wget https://github.com/simpl/ngx_devel_kit/tarball/master -O ngx_devel_kit.tar.gz</span><br><span class="line">wget http://luajit.org/download/LuaJIT-2.0.5.tar.gz</span><br><span class="line">wget https://github.com/openresty/lua-nginx-module/archive/v0.10.13.tar.gz -O lua-nginx-module-0.10.13.tar.gz</span><br><span class="line"><span class="meta">#</span>ngx支持断点续传模块</span><br><span class="line">wget https://github.com/hongzhidao/nginx-upload-module/archive/master.zip -O nginx-upload-module-master.zip</span><br><span class="line"><span class="meta">#</span>清除静态缓存模块</span><br><span class="line">wget http://labs.frickle.com/files/ngx_cache_purge-2.3.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>安装LuaJit解释器, ngx需此解释器解释lua代码</span><br><span class="line">tar -xzf LuaJIT-2.0.5.tar.gz</span><br><span class="line">cd LuaJIT-2.0.5</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line">    action "Install LuaJIT Success!" /bin/true</span><br><span class="line"><span class="meta">	#</span>添加动态库</span><br><span class="line">	echo "/usr/local/lib" &gt;/etc/ld.so.conf.d/usr_local_lib.conf</span><br><span class="line">	ldconfig</span><br><span class="line">else</span><br><span class="line">    action "Install LuaJIT Failure"  /bin/false</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">cd ../</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>解压相关安装包</span><br><span class="line">for i in *.tar.gz ; do</span><br><span class="line">    tar -xzf "$i"</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">for i in *.zip ; do</span><br><span class="line">	unzip "$i"</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>编译安装</span><br><span class="line">cd nginx-1.10.3</span><br><span class="line">./configure --prefix=/usr/local/nginx-1.10.3 --with-stream --with-http_stub_status_module --with-http_image_filter_module --with-http_ssl_module --user=$nginx_user --group=$nginx_user --with-pcre --add-module=../simplresty-ngx_devel_kit-a22dade/ --add-module=../ngx_cache_purge-2.3 --add-module=../lua-nginx-module-0.10.13  --add-module=../nginx-upload-module-master</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line">    action "Configure Nginx Success" /bin/true</span><br><span class="line">else</span><br><span class="line">    action "Configure Nginx Failure"  /bin/false</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line">make</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line">    action "Make Nginx Success" /bin/true</span><br><span class="line">else</span><br><span class="line">    action "Make Nginx Failure"  /bin/false</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line">make install</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line">    action "Install Nginx Success!" /bin/true</span><br><span class="line">else</span><br><span class="line">    action "Install Nginx Failure"  /bin/false</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -339,7 +414,7 @@
     
     
       <div>
-        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢您的阅读------</div>
+        <div style="text-align:center;color: #ccc;font-size:14px;">感谢您的阅读<i class="fa fa-paw"></i></div>
       </div>
     
 
@@ -364,6 +439,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/15/Nginx官方服务脚本/" rel="prev" title="Nginx官方服务脚本">
+                Nginx官方服务脚本 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -437,12 +528,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -483,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx安装"><span class="nav-number">1.</span> <span class="nav-text">nginx安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、下载安装包"><span class="nav-number">1.1.</span> <span class="nav-text">一、下载安装包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载nginx安装包"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1.下载nginx安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载NDK安装包"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2.下载NDK安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-下载LuaJIT安装包"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3.下载LuaJIT安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-下载ngx-lua模块"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">4.下载ngx-lua模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-其他ngx第三方模块"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">5.其他ngx第三方模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、前置安装"><span class="nav-number">1.2.</span> <span class="nav-text">二、前置安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-创建nginx-worker进程的运行用户"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1. 创建nginx worker进程的运行用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-检测系统安装包"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2. 检测系统安装包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、安装步骤"><span class="nav-number">1.3.</span> <span class="nav-text">三、安装步骤</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx安装"><span class="nav-number">1.</span> <span class="nav-text">nginx安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、下载安装包"><span class="nav-number">1.1.</span> <span class="nav-text">一、下载安装包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载nginx安装包"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1.下载nginx安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载NDK安装包"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2.下载NDK安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-下载LuaJIT安装包"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3.下载LuaJIT安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-下载ngx-lua模块"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">4.下载ngx-lua模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-其他ngx第三方模块"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">5.其他ngx第三方模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、前置安装"><span class="nav-number">1.2.</span> <span class="nav-text">二、前置安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-创建nginx-worker进程的运行用户"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1. 创建nginx worker进程的运行用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-检测系统安装包"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2. 检测系统安装包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、安装步骤"><span class="nav-number">1.3.</span> <span class="nav-text">三、安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、安装脚本"><span class="nav-number">1.4.</span> <span class="nav-text">四、安装脚本</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -621,6 +721,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
